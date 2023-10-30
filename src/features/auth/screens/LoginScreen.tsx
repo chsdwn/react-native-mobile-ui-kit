@@ -7,8 +7,9 @@ import {
   View,
 } from 'react-native';
 
-import { Button, SafeLayout, TextInput } from '@/components';
+import { Button, SafeLayout } from '@/components';
 import { theme } from '@/config/theme';
+import { EmailInput, PasswordInput } from '../components';
 
 const isIOS = Platform.OS === 'ios';
 
@@ -26,19 +27,8 @@ export const LoginScreen = () => {
         >
           <Text style={styles.title}>Log In</Text>
           <View style={styles.inputContainer}>
-            <TextInput
-              placeholder="Email"
-              placeholderTextColor={theme.colors.grayDark}
-              textContentType="emailAddress"
-              style={styles.input}
-            />
-            <TextInput
-              placeholder="Password"
-              textContentType="password"
-              secureTextEntry
-              style={[styles.input, styles.passwordInput]}
-              placeholderTextColor={theme.colors.grayDark}
-            />
+            <EmailInput />
+            <PasswordInput />
           </View>
 
           <View>
@@ -74,13 +64,6 @@ const styles = StyleSheet.create({
   inputContainer: {
     flex: 1,
     marginVertical: theme.spacing.lg,
-  },
-  input: {
-    backgroundColor: theme.colors.grayLight,
-  },
-  passwordInput: {
-    marginTop: theme.spacing.md,
-    color: theme.colors.grayDark,
   },
   forgotPasswordButton: {
     marginTop: theme.spacing.md,

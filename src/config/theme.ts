@@ -2,6 +2,7 @@ const colors = {
   grayLight: '#f6f6f6',
   gray: '#e8e8e8',
   grayDark: '#bdbdbd',
+  grayDarker: '#666666',
   green: '#5db075',
   black: '#000',
   white: '#fff',
@@ -10,6 +11,7 @@ const colors = {
 const fontSize = {
   title: 36,
   content: 16,
+  label: 14,
 };
 
 const roundness = {
