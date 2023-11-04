@@ -1,19 +1,12 @@
-import {
-  BackHandler,
-  KeyboardAvoidingView,
-  Platform,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { BackHandler, Pressable, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 
-import { theme } from '@/config/theme';
+import { useStyles } from '@/hooks';
+import { createStyleSheet } from '@/hooks/useStyles';
 import { PublicStackNavigationProp } from '@/types';
 
 export const SignupHeader = () => {
+  const styles = useStyles(styleSheet);
   const navigation = useNavigation<PublicStackNavigationProp>();
 
   const handleClosePress = () => {
@@ -42,7 +35,7 @@ export const SignupHeader = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const styleSheet = createStyleSheet(({ theme }) => ({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -51,6 +44,7 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSize.title,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: theme.colors.black,
   },
   btn: {
     flex: 1,
@@ -68,4 +62,4 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSize.content,
     color: theme.colors.green,
   },
-});
+}));

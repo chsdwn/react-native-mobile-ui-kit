@@ -2,18 +2,21 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-  StyleSheet,
   Text,
   View,
 } from 'react-native';
 
 import { Button, SafeLayout, TextInput } from '@/components';
-import { theme } from '@/config/theme';
+import { useStyles, useTheme } from '@/hooks';
+import { createStyleSheet } from '@/hooks/useStyles';
 import { EmailInput, PasswordInput, SignupHeader } from '../components';
 
 const isIOS = Platform.OS === 'ios';
 
 export const SignupScreen = () => {
+  const theme = useTheme();
+  const styles = useStyles(styleSheet);
+
   return (
     <SafeLayout style={styles.container}>
       <KeyboardAvoidingView
@@ -60,7 +63,7 @@ export const SignupScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const styleSheet = createStyleSheet(({ theme }) => ({
   container: {
     flex: 1,
     margin: theme.spacing.md,
@@ -101,4 +104,4 @@ const styles = StyleSheet.create({
   forgotPasswordButton: {
     marginTop: theme.spacing.md,
   },
-});
+}));

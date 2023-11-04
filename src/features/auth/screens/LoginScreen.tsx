@@ -2,18 +2,20 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-  StyleSheet,
   Text,
   View,
 } from 'react-native';
 
 import { Button, SafeLayout } from '@/components';
-import { theme } from '@/config/theme';
+import { useStyles } from '@/hooks';
+import { createStyleSheet } from '@/hooks/useStyles';
 import { EmailInput, PasswordInput } from '../components';
 
 const isIOS = Platform.OS === 'ios';
 
 export const LoginScreen = () => {
+  const styles = useStyles(styleSheet);
+
   return (
     <SafeLayout style={styles.container}>
       <KeyboardAvoidingView
@@ -45,7 +47,7 @@ export const LoginScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const styleSheet = createStyleSheet(({ theme }) => ({
   container: {
     flex: 1,
     margin: theme.spacing.md,
@@ -60,6 +62,7 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSize.title,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: theme.colors.black,
   },
   inputContainer: {
     flex: 1,
@@ -69,4 +72,4 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.md,
     marginBottom: theme.spacing.md,
   },
-});
+}));

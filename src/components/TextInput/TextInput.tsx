@@ -8,13 +8,16 @@ import {
   View,
 } from 'react-native';
 
-import { theme } from '@/config/theme';
+import { useStyles } from '@/hooks';
+import { createStyleSheet } from '@/hooks/useStyles';
 
 export const TextInput = ({
   secureTextEntry,
   style,
   ...rest
 }: TextInputProps) => {
+  const styles = useStyles(styleSheet);
+
   const [showPassword, setShowPassword] = useState(secureTextEntry || false);
 
   const handleShowPress = () => {
@@ -39,7 +42,7 @@ export const TextInput = ({
   );
 };
 
-const styles = StyleSheet.create({
+const styleSheet = createStyleSheet(({ theme }) => ({
   container: {
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.grayDark,
@@ -53,6 +56,7 @@ const styles = StyleSheet.create({
     paddingRight: 0,
     fontSize: theme.fontSize.content,
     flex: 1,
+    color: theme.colors.black,
   },
   showBtn: {
     marginRight: theme.spacing.md,
@@ -62,4 +66,4 @@ const styles = StyleSheet.create({
     color: theme.colors.green,
     fontSize: theme.fontSize.content,
   },
-});
+}));

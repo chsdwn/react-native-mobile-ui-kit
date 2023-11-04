@@ -1,10 +1,13 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 
 import { TextInput } from '@/components';
-import { theme } from '@/config/theme';
+import { useStyles, useTheme } from '@/hooks';
+import { createStyleSheet } from '@/hooks/useStyles';
 
 export const PasswordInput = () => {
+  const theme = useTheme();
+  const styles = useStyles(styleSheet);
+
   return (
     <TextInput
       placeholder="Password"
@@ -16,11 +19,11 @@ export const PasswordInput = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const styleSheet = createStyleSheet(({ theme }) => ({
   input: {
     backgroundColor: theme.colors.grayLight,
     marginBottom: theme.spacing.md,
     borderColor: theme.colors.gray,
     borderWidth: 1,
   },
-});
+}));

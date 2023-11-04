@@ -1,18 +1,16 @@
-import { theme } from '@/config/theme';
 import React from 'react';
-import {
-  Pressable,
-  PressableProps,
-  StyleSheet,
-  Text,
-  ViewProps,
-} from 'react-native';
+import { Pressable, PressableProps, Text, ViewProps } from 'react-native';
+
+import { useStyles } from '@/hooks';
+import { createStyleSheet } from '@/hooks/useStyles';
 
 type Props = PressableProps & {
   title: string;
   variant?: 'default' | 'text';
 };
 export const Button = ({ title, variant, style, ...rest }: Props) => {
+  const styles = useStyles(styleSheet);
+
   const isText = variant === 'text';
 
   return (
@@ -31,7 +29,7 @@ export const Button = ({ title, variant, style, ...rest }: Props) => {
   );
 };
 
-const styles = StyleSheet.create({
+const styleSheet = createStyleSheet(({ theme }) => ({
   button: {
     paddingVertical: theme.spacing.md,
     paddingHorizontal: theme.spacing.lg,
@@ -53,4 +51,4 @@ const styles = StyleSheet.create({
   textButtonTitle: {
     color: theme.colors.green,
   },
-});
+}));
