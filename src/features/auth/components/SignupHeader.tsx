@@ -42,12 +42,13 @@ const styleSheet = createStyleSheet(({ theme }) => ({
   },
   title: {
     fontSize: theme.fontSize.title,
-    fontWeight: 'bold',
+    fontWeight: '600',
     textAlign: 'center',
     color: theme.colors.black,
   },
   btn: {
     flex: 1,
+    marginTop: theme.spacing.xs,
     padding: theme.spacing.xs,
   },
   closeBtnTitle: {
@@ -61,5 +62,6 @@ const styleSheet = createStyleSheet(({ theme }) => ({
   loginBtnTitle: {
     fontSize: theme.fontSize.content,
     color: theme.colors.green,
+    fontWeight: '500',
   },
 }));

@@ -11,7 +11,6 @@ export const EmailInput = () => {
   return (
     <TextInput
       placeholder="Email"
-      placeholderTextColor={theme.colors.grayDark}
       textContentType="emailAddress"
       style={styles.input}
     />

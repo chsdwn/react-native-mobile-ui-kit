@@ -1,3 +1,4 @@
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 export type PublicStackParamList = {
@@ -7,3 +8,10 @@ export type PublicStackParamList = {
 
 export type PublicStackNavigationProp =
   NativeStackNavigationProp<PublicStackParamList>;
+
+export type PrivateBottomBarParamList = {
+  Feed: undefined;
+};
+
+export type PrivateBottomBarNavigationProp =
+  BottomTabNavigationProp<PrivateBottomBarParamList>;

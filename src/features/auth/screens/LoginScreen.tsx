@@ -9,12 +9,18 @@ import {
 import { Button, SafeLayout } from '@/components';
 import { useStyles } from '@/hooks';
 import { createStyleSheet } from '@/hooks/useStyles';
+import { useUserStore } from '@/store';
 import { EmailInput, PasswordInput } from '../components';
 
 const isIOS = Platform.OS === 'ios';
 
 export const LoginScreen = () => {
+  const setAuthenticated = useUserStore((store) => store.setAuthenticated);
   const styles = useStyles(styleSheet);
+
+  const handleLogin = () => {
+    setAuthenticated(true);
+  };
 
   return (
     <SafeLayout style={styles.container}>
@@ -34,7 +40,7 @@ export const LoginScreen = () => {
           </View>
 
           <View>
-            <Button title="Log In" />
+            <Button title="Log In" onPress={handleLogin} />
             <Button
               title="Forgot your password?"
               variant="text"
@@ -60,7 +66,7 @@ const styleSheet = createStyleSheet(({ theme }) => ({
   },
   title: {
     fontSize: theme.fontSize.title,
-    fontWeight: 'bold',
+    fontWeight: '600',
     textAlign: 'center',
     color: theme.colors.black,
   },

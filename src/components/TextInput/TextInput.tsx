@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 
-import { useStyles } from '@/hooks';
+import { useStyles, useTheme } from '@/hooks';
 import { createStyleSheet } from '@/hooks/useStyles';
 
 export const TextInput = ({
@@ -16,6 +16,7 @@ export const TextInput = ({
   style,
   ...rest
 }: TextInputProps) => {
+  const theme = useTheme();
   const styles = useStyles(styleSheet);
 
   const [showPassword, setShowPassword] = useState(secureTextEntry || false);
@@ -29,6 +30,7 @@ export const TextInput = ({
       <RNTextInput
         secureTextEntry={showPassword}
         style={styles.input}
+        placeholderTextColor={theme.colors.grayDark}
         {...rest}
       />
       {secureTextEntry && (

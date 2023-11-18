@@ -19,7 +19,7 @@ const darkColors = {
 };
 
 const fontSize = {
-  title: 36,
+  title: 30,
   content: 16,
   label: 14,
 };
@@ -34,6 +34,7 @@ const spacing = {
   sm: 8,
   md: 16,
   lg: 32,
+  xl: 48,
 };
 
 const baseTheme = {

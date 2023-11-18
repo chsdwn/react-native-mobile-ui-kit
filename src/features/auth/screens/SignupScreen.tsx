@@ -9,13 +9,19 @@ import {
 import { Button, SafeLayout, TextInput } from '@/components';
 import { useStyles, useTheme } from '@/hooks';
 import { createStyleSheet } from '@/hooks/useStyles';
+import { useUserStore } from '@/store';
 import { EmailInput, PasswordInput, SignupHeader } from '../components';
 
 const isIOS = Platform.OS === 'ios';
 
 export const SignupScreen = () => {
+  const setAuthenticated = useUserStore((store) => store.setAuthenticated);
   const theme = useTheme();
   const styles = useStyles(styleSheet);
+
+  const handleSignUp = () => {
+    setAuthenticated(true);
+  };
 
   return (
     <SafeLayout style={styles.container}>
@@ -33,7 +39,6 @@ export const SignupScreen = () => {
           <View style={styles.inputContainer}>
             <TextInput
               placeholder="Name"
-              placeholderTextColor={theme.colors.grayDark}
               textContentType="name"
               style={styles.input}
             />
@@ -50,7 +55,7 @@ export const SignupScreen = () => {
           </View>
 
           <View>
-            <Button title="Sign Up" />
+            <Button title="Sign Up" onPress={handleSignUp} />
             <Button
               title="Forgot your password?"
               variant="text"
@@ -100,6 +105,8 @@ const styleSheet = createStyleSheet(({ theme }) => ({
   confirmationText: {
     color: theme.colors.grayDarker,
     fontSize: theme.fontSize.label,
+    fontWeight: '400',
+    flex: 1,
   },
   forgotPasswordButton: {
     marginTop: theme.spacing.md,

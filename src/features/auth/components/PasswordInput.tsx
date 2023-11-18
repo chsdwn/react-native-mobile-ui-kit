@@ -14,7 +14,6 @@ export const PasswordInput = () => {
       textContentType="password"
       secureTextEntry
       style={styles.input}
-      placeholderTextColor={theme.colors.grayDark}
     />
   );
 };
