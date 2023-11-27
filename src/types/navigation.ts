@@ -11,6 +11,7 @@ export type PublicStackNavigationProp =
 
 export type PrivateBottomBarParamList = {
   Feed: undefined;
+  Content: undefined;
 };
 
 export type PrivateBottomBarNavigationProp =

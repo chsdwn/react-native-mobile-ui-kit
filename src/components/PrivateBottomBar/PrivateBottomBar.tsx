@@ -1,21 +1,32 @@
 import React from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { Pressable, SafeAreaView, View } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 
 import { useStyles } from '@/hooks';
 import { createStyleSheet } from '@/hooks/useStyles';
+import { PrivateBottomBarNavigationProp } from '@/types';
 
-export const PrivateBottomBar = (_props: BottomTabBarProps) => {
+export const PrivateBottomBar = (props: BottomTabBarProps) => {
   const styles = useStyles(styleSheet);
+  const navigation = useNavigation<PrivateBottomBarNavigationProp>();
+
+  const activeRoute = props.state.history.at(-1)?.key?.split('-')?.[0];
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.bottomBar}>
-        <View style={[styles.tab, styles.activeTab]} />
-        <View style={[styles.tab]} />
-        <View style={[styles.tab]} />
-        <View style={[styles.tab]} />
-        <View style={[styles.tab]} />
+        <Pressable
+          onPress={() => navigation.navigate('Feed')}
+          style={[styles.tab, activeRoute === 'Feed' && styles.activeTab]}
+        />
+        <Pressable
+          onPress={() => navigation.navigate('Content')}
+          style={[styles.tab, activeRoute === 'Content' && styles.activeTab]}
+        />
+        <Pressable style={[styles.tab]} />
+        <Pressable style={[styles.tab]} />
+        <Pressable style={[styles.tab]} />
       </View>
     </SafeAreaView>
   );

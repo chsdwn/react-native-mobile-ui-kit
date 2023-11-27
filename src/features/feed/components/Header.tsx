@@ -4,7 +4,11 @@ import { Pressable, Text, View } from 'react-native';
 import { useStyles } from '@/hooks';
 import { createStyleSheet } from '@/hooks/useStyles';
 
-export const FeedHeader = () => {
+type Props = {
+  title: string;
+};
+
+export const Header = ({ title }: Props) => {
   const styles = useStyles(styleSheet);
 
   return (
@@ -13,7 +17,7 @@ export const FeedHeader = () => {
         <Text style={styles.btnTitle}>Back</Text>
       </Pressable>
 
-      <Text style={styles.title}>Feed</Text>
+      <Text style={styles.title}>{title}</Text>
 
       <Pressable style={styles.btn}>
         <Text style={styles.btnTitle}>Filter</Text>

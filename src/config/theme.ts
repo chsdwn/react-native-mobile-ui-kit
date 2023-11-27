@@ -6,7 +6,7 @@ const lightColors = {
   green: 'hsla(137, 34%, 53%, 0.9)',
   black: 'hsla(0, 0%, 0%, 1)',
   white: 'hsla(0, 0%, 100%, 1)',
-};
+} as const;
 
 const darkColors = {
   grayLight: 'hsla(0, 0%, 4%, 1)',
@@ -16,18 +16,18 @@ const darkColors = {
   green: 'hsla(137, 34%, 53%, 0.9)',
   black: 'hsla(0, 0%, 1000%, 1)',
   white: 'hsla(0, 0%, 0%, 1)',
-};
+} as const;
 
 const fontSize = {
   title: 30,
   content: 16,
   label: 14,
-};
+} as const;
 
 const roundness = {
   default: 8,
   full: 9999,
-};
+} as const;
 
 const spacing = {
   xs: 4,
@@ -35,7 +35,7 @@ const spacing = {
   md: 16,
   lg: 32,
   xl: 48,
-};
+} as const;
 
 const baseTheme = {
   colors: lightColors,
@@ -43,10 +43,10 @@ const baseTheme = {
   roundness,
   spacing,
 };
-export type ITheme = typeof baseTheme;
+export type ITheme = typeof lightTheme | typeof darkTheme;
 
-export const lightTheme: ITheme = baseTheme;
-export const darkTheme: ITheme = {
+export const lightTheme = baseTheme;
+export const darkTheme = {
   ...baseTheme,
   colors: darkColors,
 };

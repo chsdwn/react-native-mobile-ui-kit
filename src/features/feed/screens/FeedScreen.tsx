@@ -4,7 +4,7 @@ import { Image, ScrollView, View } from 'react-native';
 import { SafeLayout, TextInput } from '@/components';
 import { useStyles } from '@/hooks';
 import { createStyleSheet } from '@/hooks/useStyles';
-import { FeedContent, FeedHeader } from '../components';
+import { FeedContent, Header } from '../components';
 
 const contents = Array(4)
   .fill(null)
@@ -25,7 +25,7 @@ export const FeedScreen = () => {
         contentContainerStyle={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        <FeedHeader />
+        <Header title="Feed" />
         <TextInput placeholder="Search" style={styles.searchInput} />
 
         {contents.map((content) => (

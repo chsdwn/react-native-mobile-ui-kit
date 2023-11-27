@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { PrivateBottomBar } from '@/components';
-import { FeedScreen } from '@/features/feed/screens';
+import { ContentScreen, FeedScreen } from '@/features/feed/screens';
 import { PrivateBottomBarParamList } from '@/types';
 
 const BottomBar = createBottomTabNavigator<PrivateBottomBarParamList>();
@@ -13,6 +13,7 @@ export const PrivateRoute = () => {
       tabBar={(props) => <PrivateBottomBar {...props} />}
     >
       <BottomBar.Screen name="Feed" component={FeedScreen} />
+      <BottomBar.Screen name="Content" component={ContentScreen} />
     </BottomBar.Navigator>
   );
 };

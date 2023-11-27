@@ -1,2 +1,3 @@
+export { ContentCard } from './ContentCard';
 export { FeedContent } from './FeedContent';
-export { FeedHeader } from './FeedHeader';
+export { Header } from './Header';
