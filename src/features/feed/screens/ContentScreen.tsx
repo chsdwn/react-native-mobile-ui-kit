@@ -53,7 +53,6 @@ const styleSheet = createStyleSheet(({ theme }) => ({
     borderRadius: theme.roundness.full,
     marginTop: theme.spacing.lg,
   },
-
   imageIndicatorContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',

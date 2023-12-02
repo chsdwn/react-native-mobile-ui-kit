@@ -24,7 +24,10 @@ export const PrivateBottomBar = (props: BottomTabBarProps) => {
           onPress={() => navigation.navigate('Content')}
           style={[styles.tab, activeRoute === 'Content' && styles.activeTab]}
         />
-        <Pressable style={[styles.tab]} />
+        <Pressable
+          onPress={() => navigation.navigate('Market')}
+          style={[styles.tab, activeRoute === 'Market' && styles.activeTab]}
+        />
         <Pressable style={[styles.tab]} />
         <Pressable style={[styles.tab]} />
       </View>
