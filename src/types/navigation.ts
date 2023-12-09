@@ -17,3 +17,11 @@ export type PrivateBottomBarParamList = {
 
 export type PrivateBottomBarNavigationProp =
   BottomTabNavigationProp<PrivateBottomBarParamList>;
+
+export type PrivateStackParamList = {
+  FeedBottomNavigation: undefined;
+  Modal: undefined;
+};
+
+export type PrivateStackNavigationProp =
+  NativeStackNavigationProp<PrivateStackParamList>;

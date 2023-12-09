@@ -1,16 +1,18 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { PrivateBottomBar } from '@/components';
 import {
   ContentScreen,
+  FeedModalScreen,
   FeedScreen,
   MarketScreen,
 } from '@/features/feed/screens';
-import { PrivateBottomBarParamList } from '@/types';
+import { PrivateBottomBarParamList, PrivateStackParamList } from '@/types';
 
 const BottomBar = createBottomTabNavigator<PrivateBottomBarParamList>();
 
-export const PrivateRoute = () => {
+const FeedBottomNavigation = () => {
   return (
     <BottomBar.Navigator
       screenOptions={{ headerShown: false }}
@@ -20,5 +22,19 @@ export const PrivateRoute = () => {
       <BottomBar.Screen name="Content" component={ContentScreen} />
       <BottomBar.Screen name="Market" component={MarketScreen} />
     </BottomBar.Navigator>
+  );
+};
+
+const Stack = createNativeStackNavigator<PrivateStackParamList>();
+
+export const PrivateRoute = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen
+        name="FeedBottomNavigation"
+        component={FeedBottomNavigation}
+      />
+      <Stack.Screen name="Modal" component={FeedModalScreen} />
+    </Stack.Navigator>
   );
 };

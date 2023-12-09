@@ -79,7 +79,7 @@ export const MarketScreen = () => {
               title={item.title}
               price={item.price}
               imageSource={{
-                uri: `https://picsum.photos/seed/${item.id}-${item.title}/110`,
+                uri: `https://picsum.photos/seed/trending-${item.id}-${item.title}/110`,
               }}
               lastItem={index + 1 === items.length}
             />
@@ -101,7 +101,7 @@ export const MarketScreen = () => {
               title={item.title}
               price={item.price}
               imageSource={{
-                uri: `https://picsum.photos/seed/${item.id}-${item.title}/110`,
+                uri: `https://picsum.photos/seed/deal-${item.id}-${item.title}/110`,
               }}
               lastItem={index + 1 === items.length}
             />
