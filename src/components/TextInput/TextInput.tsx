@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import {
+  ActivityIndicator,
   Pressable,
   StyleSheet,
   Text,
   TextInput as RNTextInput,
-  TextInputProps,
+  TextInputProps as RNTextInputProps,
   View,
 } from 'react-native';
 
 import { useStyles, useTheme } from '@/hooks';
 import { createStyleSheet } from '@/hooks/useStyles';
 
+export interface TextInputProps extends RNTextInputProps {
+  loading?: boolean;
+}
+
 export const TextInput = ({
   secureTextEntry,
   style,
+  loading = false,
   ...rest
 }: TextInputProps) => {
   const theme = useTheme();
@@ -39,6 +45,11 @@ export const TextInput = ({
             {showPassword ? 'Show' : 'Hide'}
           </Text>
         </Pressable>
+      )}
+      {loading && (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="small" color={theme.colors.grayDark} />
+        </View>
       )}
     </View>
   );
@@ -67,5 +78,13 @@ const styleSheet = createStyleSheet(({ theme }) => ({
   showBtnTitle: {
     color: theme.colors.green,
     fontSize: theme.fontSize.content,
+  },
+  loadingContainer: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    height: '100%',
+    justifyContent: 'center',
+    paddingHorizontal: theme.spacing.md,
   },
 }));
