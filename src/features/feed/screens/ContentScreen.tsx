@@ -56,6 +56,7 @@ export const ContentScreen = () => {
         {!debouncedValue && (
           <>
             <ContentCard
+              id="1"
               title="Header"
               description="He'll want to use your yatch, and I don't want this thing smelling like fish."
               date="8m ago"

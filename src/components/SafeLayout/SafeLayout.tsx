@@ -5,7 +5,7 @@ import { useStyles } from '@/hooks';
 import { createStyleSheet } from '@/hooks/useStyles';
 
 type Props = {
-  style: ViewProps['style'];
+  style?: ViewProps['style'];
   children: React.ReactNode;
 };
 export const SafeLayout = ({ style, children }: Props) => {

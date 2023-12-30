@@ -1,20 +1,28 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 import { useStyles } from '@/hooks';
 import { createStyleSheet } from '@/hooks/useStyles';
+import { PrivateBottomBarNavigationProp } from '@/types';
 
 type Props = {
+  id: string;
   title: string;
   description: string;
   date: string;
 };
 
-export const FeedContent = ({ title, description, date }: Props) => {
+export const FeedContent = ({ id, title, description, date }: Props) => {
   const styles = useStyles(styleSheet);
+  const navigation = useNavigation<PrivateBottomBarNavigationProp>();
+
+  const handlePress = () => {
+    navigation.navigate('PostDetails', { id });
+  };
 
   return (
-    <View style={styles.container}>
+    <Pressable onPress={handlePress} style={styles.container}>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
@@ -30,7 +38,7 @@ export const FeedContent = ({ title, description, date }: Props) => {
           {description}
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

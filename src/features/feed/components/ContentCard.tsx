@@ -1,10 +1,19 @@
 import React from 'react';
-import { Image, ImageSourcePropType, Text, View } from 'react-native';
+import {
+  Image,
+  ImageSourcePropType,
+  Pressable,
+  Text,
+  View,
+} from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 import { useStyles } from '@/hooks';
 import { createStyleSheet } from '@/hooks/useStyles';
+import { PrivateBottomBarNavigationProp } from '@/types';
 
 type Props = {
+  id: string;
   title: string;
   description: string;
   date: string;
@@ -12,15 +21,21 @@ type Props = {
 };
 
 export const ContentCard = ({
+  id,
   title,
   description,
   date,
   imageSource,
 }: Props) => {
   const styles = useStyles(styleSheet);
+  const navigation = useNavigation<PrivateBottomBarNavigationProp>();
+
+  const handlePress = () => {
+    navigation.navigate('PostDetails', { id });
+  };
 
   return (
-    <View style={styles.card}>
+    <Pressable onPress={handlePress} style={styles.card}>
       <View style={styles.cardContainer}>
         <Image
           source={imageSource}
@@ -31,7 +46,7 @@ export const ContentCard = ({
       <Text style={styles.cardTitle}>{title}</Text>
       <Text style={styles.cardDescription}>{description}</Text>
       <Text style={styles.cardDate}>{date}</Text>
-    </View>
+    </Pressable>
   );
 };
 

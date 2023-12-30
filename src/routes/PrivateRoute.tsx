@@ -7,6 +7,7 @@ import {
   FeedModalScreen,
   FeedScreen,
   MarketScreen,
+  PostDetailsScreen,
 } from '@/features/feed/screens';
 import { PrivateBottomBarParamList, PrivateStackParamList } from '@/types';
 
@@ -21,6 +22,7 @@ const FeedBottomNavigation = () => {
       <BottomBar.Screen name="Feed" component={FeedScreen} />
       <BottomBar.Screen name="Content" component={ContentScreen} />
       <BottomBar.Screen name="Market" component={MarketScreen} />
+      <BottomBar.Screen name="PostDetails" component={PostDetailsScreen} />
     </BottomBar.Navigator>
   );
 };

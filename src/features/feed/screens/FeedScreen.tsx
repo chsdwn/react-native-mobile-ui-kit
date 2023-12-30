@@ -31,6 +31,7 @@ export const FeedScreen = () => {
         {contents.map((content) => (
           <FeedContent
             key={content.id}
+            id={content.id}
             title={content.title}
             description={content.description}
             date={content.date}

@@ -1,4 +1,5 @@
 export type {
+  PostDetailsRouteProp,
   PrivateBottomBarNavigationProp,
   PrivateBottomBarParamList,
   PrivateStackNavigationProp,
