@@ -14,3 +14,4 @@
 1. Market Screen: https://github.com/chsdwn/react-native-mobile-ui-kit/tree/06-market_screen
 1. Modal Screen: https://github.com/chsdwn/react-native-mobile-ui-kit/tree/07-modal_screen
 1. Content Search: https://github.com/chsdwn/react-native-mobile-ui-kit/tree/08-content_search
+1. Post Details Screen: https://github.com/chsdwn/react-native-mobile-ui-kit/tree/09-post_details_screen
